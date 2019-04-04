@@ -6,7 +6,7 @@
 #
 Name     : deprecated-nose
 Version  : 1.3.7
-Release  : 52
+Release  : 53
 URL      : http://pypi.debian.net/nose/nose-1.3.7.tar.gz
 Source0  : http://pypi.debian.net/nose/nose-1.3.7.tar.gz
 Source99 : http://pypi.debian.net/nose/nose-1.3.7.tar.gz.asc
@@ -77,7 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554322748
+export SOURCE_DATE_EPOCH=1554341102
 export MAKEFLAGS=%{?_smp_mflags}
 python2 setup.py build -b py2
 
@@ -91,8 +91,8 @@ python2 -tt setup.py build -b py2 install --root=%{buildroot}
 
 %files bin
 %defattr(-,root,root,-)
+%exclude /usr/bin/nosetests
 %exclude /usr/bin/nosetests-2.7
-/usr/bin/nosetests
 
 %files extras
 %defattr(-,root,root,-)
@@ -104,7 +104,7 @@ python2 -tt setup.py build -b py2 install --root=%{buildroot}
 
 %files man
 %defattr(0644,root,root,0755)
-/usr/share/man/man1/nosetests.1
+%exclude /usr/share/man/man1/nosetests.1
 
 %files python
 %defattr(-,root,root,-)
